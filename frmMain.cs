@@ -17,6 +17,8 @@ namespace YunDictionary
                 case Keys.Escape:
                     this.WindowState = FormWindowState.Minimized;
                     break;
+                case Keys.F4:
+                    break;
                 case Keys.F2:
                     if (webBrowser1.Url == new System.Uri("about:blank"))
                     {
