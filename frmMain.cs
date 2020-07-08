@@ -92,22 +92,22 @@ namespace YunDictionary
             webBrowser1.DocumentText = sb.ToString();
         }
 
-        private void FillDocument(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(str);
+        //private void FillDocument(string str)
+        //{
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.Append(str);
 
-            string sText = @"</title>";
-            int n = sb.ToString().IndexOf(sText);
-            int l = sText.Length;
+        //    string sText = @"</title>";
+        //    int n = sb.ToString().IndexOf(sText);
+        //    int l = sText.Length;
 
-            //<meta http-equiv="X-UA-Compatible" content="IE=11" >
-            string mText = "<meta http-equiv=\"X - UA - Compatible\" content=\"IE = 11\" >";
-            sb.Insert(n + l, mText);
+        //    //<meta http-equiv="X-UA-Compatible" content="IE=11" >
+        //    string mText = "<meta http-equiv=\"X - UA - Compatible\" content=\"IE = 11\" >";
+        //    sb.Insert(n + l, mText);
 
-            webBrowser1.DocumentText = string.Empty;
-            webBrowser1.DocumentText = sb.ToString();
-        }
+        //    webBrowser1.DocumentText = string.Empty;
+        //    webBrowser1.DocumentText = sb.ToString();
+        //}
 
         private void frmMain_Load(object sender, System.EventArgs e)
         {
