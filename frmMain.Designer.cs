@@ -56,8 +56,9 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "";
-            this.Text = "Yun\'s 영어사전";
+            this.Text = "Youn\'s 영어사전";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.Shown += new System.EventHandler(this.frmMain_Shown);
             this.ResumeLayout(false);
 

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace YunDictionary
@@ -20,10 +21,14 @@ namespace YunDictionary
                 case Keys.F2:
                     if (webBrowser1.Url == new System.Uri("about:blank"))
                     {
-                        webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
+                        webBrowser1.ScrollBarsEnabled = true;
+                        //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
+                        webBrowser1.Url = new System.Uri("http://en.dict.naver.com/#/mini/main");
                     }
                     else
                     {
+                        webBrowser1.ScrollBarsEnabled = false;
+
                         webBrowser1.Url = new System.Uri("about:blank");
                         FillDocument();
                     }
@@ -33,9 +38,11 @@ namespace YunDictionary
 
         private void frmMain_Shown(object sender, System.EventArgs e)
         {
+            webBrowser1.ScrollBarsEnabled = true;
 
             //http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain
-            webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
+            //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
+            webBrowser1.Url = new System.Uri("http://en.dict.naver.com/#/mini/main");
 
         }
 
@@ -83,6 +90,37 @@ namespace YunDictionary
             sb.Append("</html>");
 
             webBrowser1.DocumentText = sb.ToString();
+        }
+
+        private void FillDocument(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(str);
+
+            string sText = @"</title>";
+            int n = sb.ToString().IndexOf(sText);
+            int l = sText.Length;
+
+            //<meta http-equiv="X-UA-Compatible" content="IE=11" >
+            string mText = "<meta http-equiv=\"X - UA - Compatible\" content=\"IE = 11\" >";
+            sb.Insert(n + l, mText);
+
+            webBrowser1.DocumentText = string.Empty;
+            webBrowser1.DocumentText = sb.ToString();
+        }
+
+        private void frmMain_Load(object sender, System.EventArgs e)
+        {
+            // 브라우저 버전문제 해결 
+            //Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION",
+            //  Application.ProductName + ".exe", 10001);
+
+            var appName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
+
+            using (var Key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
+            {
+                Key.SetValue(appName, 99999, Microsoft.Win32.RegistryValueKind.DWord);
+            }
         }
     }
 }
