@@ -119,6 +119,9 @@ namespace YunDictionary
 
             using (var Key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
             {
+                if (Key.GetValue(appName) != null && Convert.ToInt32(Key.GetValue(appName)).Equals(99999))
+                    return;
+                
                 Key.SetValue(appName, 99999, Microsoft.Win32.RegistryValueKind.DWord);
             }
         }
