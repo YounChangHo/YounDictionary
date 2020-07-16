@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text;
+﻿using System.Text;
 using System.Windows.Forms;
 
 namespace YunDictionary
@@ -21,24 +20,12 @@ namespace YunDictionary
                 case Keys.F2:
                     if (webBrowser1.Url == new System.Uri("about:blank"))
                     {
-                        webBrowser1.ScrollBarsEnabled = true;
-                        //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
-                        webBrowser1.Url = new System.Uri("https://en.dict.naver.com/#/mini/main");
-                        this.Text = "Youn's 영어사전";
-                    }
-                    else if (webBrowser1.Url == new System.Uri("https://en.dict.naver.com/#/mini/main"))
-                    {
-                        webBrowser1.ScrollBarsEnabled = true;
-                        webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
-                        this.Text = "Youn's 스팸번호";
+                        webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
                     }
                     else
                     {
-                        webBrowser1.ScrollBarsEnabled = false;
-
                         webBrowser1.Url = new System.Uri("about:blank");
                         FillDocument();
-                        this.Text = "Youn's 우편번호";
                     }
                     break;
             }
@@ -46,12 +33,10 @@ namespace YunDictionary
 
         private void frmMain_Shown(object sender, System.EventArgs e)
         {
-            webBrowser1.ScrollBarsEnabled = true;
 
             //http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain
-            //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
-            webBrowser1.Url = new System.Uri("https://en.dict.naver.com/#/mini/main");
-            //webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
+            webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
+
         }
 
         private void FillDocument()
@@ -98,40 +83,6 @@ namespace YunDictionary
             sb.Append("</html>");
 
             webBrowser1.DocumentText = sb.ToString();
-        }
-
-        //private void FillDocument(string str)
-        //{
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.Append(str);
-
-        //    string sText = @"</title>";
-        //    int n = sb.ToString().IndexOf(sText);
-        //    int l = sText.Length;
-
-        //    //<meta http-equiv="X-UA-Compatible" content="IE=11" >
-        //    string mText = "<meta http-equiv=\"X - UA - Compatible\" content=\"IE = 11\" >";
-        //    sb.Insert(n + l, mText);
-
-        //    webBrowser1.DocumentText = string.Empty;
-        //    webBrowser1.DocumentText = sb.ToString();
-        //}
-
-        private void frmMain_Load(object sender, System.EventArgs e)
-        {
-            // 브라우저 버전문제 해결 
-            //Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION",
-            //  Application.ProductName + ".exe", 10001);
-
-            var appName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
-
-            using (var Key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
-            {
-                if (Key.GetValue(appName) != null && Convert.ToInt32(Key.GetValue(appName)).Equals(99999))
-                    return;
-                
-                Key.SetValue(appName, 99999, Microsoft.Win32.RegistryValueKind.DWord);
-            }
         }
     }
 }
