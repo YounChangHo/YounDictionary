@@ -8,14 +8,14 @@
     <ProjectGuid>{ECA67BA3-3337-4C83-9E92-870F43EDCE7E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>YunDictionary</RootNamespace>
-    <AssemblyName>YunDictionary</AssemblyName>
+    <RootNamespace>YounDictionary</RootNamespace>
+    <AssemblyName>YounDictionary</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://vsop.kr:6193/www/APP/YunDictionary/</PublishUrl>
+    <PublishUrl>ftp://vsop.kr:6193/www/APP/YounDictionary/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -25,11 +25,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://vsop.kr/APP/YunDictionary/</InstallUrl>
+    <InstallUrl>http://vsop.kr/APP/YounDictionary/</InstallUrl>
     <PublisherName>윤창호</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>24</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
