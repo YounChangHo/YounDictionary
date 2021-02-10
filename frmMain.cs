@@ -32,6 +32,13 @@ namespace YunDictionary
                         webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
                         this.Text = "Youn's 스팸번호";
                     }
+                    else if (webBrowser1.Url.Host == new System.Uri("http://www.thecall.co.kr").Host)
+                    {
+                        //host : www.thecall.co.kr
+                        webBrowser1.ScrollBarsEnabled = false;
+                        webBrowser1.Url = new System.Uri("https://fast.com/ko/");
+                        this.Text = "Youn's 속도테스트";
+                    }
                     else
                     {
                         webBrowser1.ScrollBarsEnabled = false;
@@ -65,7 +72,8 @@ namespace YunDictionary
             sb.Append("<head>");
             sb.Append("<title></title>");
             sb.Append("<link rel='stylesheet' href='http://dmaps.daum.net/s1.daumcdn.net/svc/attach/U03/cssjs/postcode/1512713799440/guide.v2.min.css' />");
-            sb.Append("<script src='http://dmaps.daum.net/map_js_init/postcode.v2.js'></script>");
+            //sb.Append("<script src='http://dmaps.daum.net/map_js_init/postcode.v2.js'></script>");
+            sb.Append("<script src='http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>");
 
             sb.Append("</head>");
 
@@ -74,7 +82,7 @@ namespace YunDictionary
             //sb.Append("<input type='text' name='userName'/><br/>");
             //sb.Append("<input type='text' id='postCode' placeholder='우편번호'>");
             //sb.Append("<input type='button' onclick='execDaumPostcode()' value='우편번호 찾기'><br>");
-            sb.Append("<div id='wrap' style='display:block;border:0px solid;width:397px;height:490px; margin:-5px; position:relative;'></div>");
+            sb.Append("<div id='wrap' style='display:block;border:0px solid;width:397px;height:500px; margin:-5px; position:relative;'></div>");
 
             sb.Append("<script>");
             sb.Append("var element_wrap=document.getElementById('wrap');");
