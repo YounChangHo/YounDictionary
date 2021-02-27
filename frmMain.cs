@@ -29,6 +29,12 @@ namespace YunDictionary
                     else if (webBrowser1.Url == new System.Uri("https://en.dict.naver.com/#/mini/main"))
                     {
                         webBrowser1.ScrollBarsEnabled = true;
+                        webBrowser1.Url = new System.Uri("https://hanja.dict.naver.com/small");
+                        this.Text = "Youn's 한자사전";
+                    }
+                    else if (webBrowser1.Url == new System.Uri("https://hanja.dict.naver.com/small"))
+                    {
+                        webBrowser1.ScrollBarsEnabled = true;
                         webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
                         this.Text = "Youn's 스팸번호";
                     }
@@ -36,9 +42,18 @@ namespace YunDictionary
                     {
                         //host : www.thecall.co.kr
                         webBrowser1.ScrollBarsEnabled = false;
+                        //webBrowser1.Url = new System.Uri("https://hanja.dict.naver.com/");
                         webBrowser1.Url = new System.Uri("https://fast.com/ko/");
                         this.Text = "Youn's 속도테스트";
                     }
+                    //else if (webBrowser1.Url.Host == new System.Uri("https://hanja.dict.naver.com/").Host)
+                    //{
+                    //    //host : www.thecall.co.kr
+                    //    //size 조정?  
+                    //    webBrowser1.ScrollBarsEnabled = false;
+                    //    webBrowser1.Url = new System.Uri("https://fast.com/ko/");
+                    //    this.Text = "Youn's 속도테스트";
+                    //}
                     else
                     {
                         webBrowser1.ScrollBarsEnabled = false;
