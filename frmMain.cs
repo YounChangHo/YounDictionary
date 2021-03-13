@@ -36,7 +36,7 @@ namespace YunDictionary
                     {
                         webBrowser1.ScrollBarsEnabled = true;
                         webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
-                        this.Text = "Youn's 스팸번호 조회";
+                        this.Text = "Youn's 스팸번호";
                     }
                     else if (webBrowser1.Url.Host == new System.Uri("http://www.thecall.co.kr").Host)
                     {
