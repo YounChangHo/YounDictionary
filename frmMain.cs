@@ -36,7 +36,7 @@ namespace YunDictionary
                     {
                         webBrowser1.ScrollBarsEnabled = true;
                         webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
-                        this.Text = "Youn's 스팸번호";
+                        this.Text = "Youn's 스팸번호 조회";
                     }
                     else if (webBrowser1.Url.Host == new System.Uri("http://www.thecall.co.kr").Host)
                     {
@@ -152,7 +152,7 @@ namespace YunDictionary
             {
                 if (Key.GetValue(appName) != null && Convert.ToInt32(Key.GetValue(appName)).Equals(99999))
                     return;
-                
+
                 Key.SetValue(appName, 99999, Microsoft.Win32.RegistryValueKind.DWord);
             }
         }
