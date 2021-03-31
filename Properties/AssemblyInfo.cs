@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 어셈블리의 일반 정보는 다음 특성 집합을 통해 제어됩니다.
 // 어셈블리와 관련된 정보를 수정하려면
 // 이 특성 값을 변경하십시오.
-[assembly: AssemblyTitle("YunDictionary")]
+[assembly: AssemblyTitle("YounDictionary")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("유한테크노스.")]
-[assembly: AssemblyProduct("YunDictionary")]
-[assembly: AssemblyCopyright("Copyright © 유한테크노스. 2014")]
+[assembly: AssemblyCompany("부동솔루션")]
+[assembly: AssemblyProduct("YounDictionary")]
+[assembly: AssemblyCopyright("Copyright © 윤창호. 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

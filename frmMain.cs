@@ -21,46 +21,37 @@ namespace YunDictionary
                 case Keys.F2:
                     if (webBrowser1.Url == new System.Uri("about:blank"))
                     {
-                        webBrowser1.ScrollBarsEnabled = true;
+                        webBrowser1.Url = new System.Uri("http://vsop.kr");
+                        this.Text = "Home Page";
+                    }
+                    else if (webBrowser1.Url.Host == new System.Uri("http://vsop.kr").Host)
+                    {
                         //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
                         webBrowser1.Url = new System.Uri("https://en.dict.naver.com/#/mini/main");
-                        this.Text = "Youn's 영어사전";
+                        this.Text = "영어사전";
                     }
-                    else if (webBrowser1.Url == new System.Uri("https://en.dict.naver.com/#/mini/main"))
+                    else if (webBrowser1.Url.Host == new System.Uri("https://en.dict.naver.com/#/mini/main").Host)
                     {
-                        webBrowser1.ScrollBarsEnabled = true;
                         webBrowser1.Url = new System.Uri("https://hanja.dict.naver.com/small");
-                        this.Text = "Youn's 한자사전";
+                        this.Text = "한자사전";
                     }
-                    else if (webBrowser1.Url == new System.Uri("https://hanja.dict.naver.com/small"))
+                    else if (webBrowser1.Url.Host == new System.Uri("https://hanja.dict.naver.com/small").Host)
                     {
-                        webBrowser1.ScrollBarsEnabled = true;
                         webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
-                        this.Text = "Youn's 스팸번호 조회";
+                        this.Text = "스팸번호 조회";
                     }
                     else if (webBrowser1.Url.Host == new System.Uri("http://www.thecall.co.kr").Host)
                     {
                         //host : www.thecall.co.kr
-                        webBrowser1.ScrollBarsEnabled = false;
                         //webBrowser1.Url = new System.Uri("https://hanja.dict.naver.com/");
                         webBrowser1.Url = new System.Uri("https://fast.com/ko/");
-                        this.Text = "Youn's 속도테스트";
+                        this.Text = "속도테스트";
                     }
-                    //else if (webBrowser1.Url.Host == new System.Uri("https://hanja.dict.naver.com/").Host)
-                    //{
-                    //    //host : www.thecall.co.kr
-                    //    //size 조정?  
-                    //    webBrowser1.ScrollBarsEnabled = false;
-                    //    webBrowser1.Url = new System.Uri("https://fast.com/ko/");
-                    //    this.Text = "Youn's 속도테스트";
-                    //}
                     else
                     {
-                        webBrowser1.ScrollBarsEnabled = false;
-
                         webBrowser1.Url = new System.Uri("about:blank");
                         FillDocument();
-                        this.Text = "Youn's 우편번호";
+                        this.Text = "우편번호 조회";
                     }
                     break;
             }
@@ -68,12 +59,14 @@ namespace YunDictionary
 
         private void frmMain_Shown(object sender, System.EventArgs e)
         {
-            webBrowser1.ScrollBarsEnabled = true;
+            //webBrowser1.ScrollBarsEnabled = true;
 
             //http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain
             //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
-            webBrowser1.Url = new System.Uri("https://en.dict.naver.com/#/mini/main");
+            //webBrowser1.Url = new System.Uri("https://en.dict.naver.com/#/mini/main");
             //webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
+
+            webBrowser1.Url = new System.Uri("http://vsop.kr/");
         }
 
         private void FillDocument()

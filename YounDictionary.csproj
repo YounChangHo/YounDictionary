@@ -15,7 +15,9 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://vsop.kr:6193/www/APP/YounDictionary/</PublishUrl>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>ftp://vsop.kr:6194/www/APP/YounDictionary/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -26,10 +28,10 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://vsop.kr/APP/YounDictionary/</InstallUrl>
-    <PublisherName>윤창호</PublisherName>
+    <PublisherName>CH Youn</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationRevision>34</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -149,7 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
-    <Content Include="logo16.ico" />
     <None Include="Resources\Logo.ico" />
     <None Include="Resources\Icon.ico" />
   </ItemGroup>
