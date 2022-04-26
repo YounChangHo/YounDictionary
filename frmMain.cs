@@ -11,67 +11,21 @@ namespace YunDictionary
             InitializeComponent();
         }
 
-        private void webBrowser1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Escape:
-                    this.WindowState = FormWindowState.Minimized;
-                    break;
-                case Keys.F2:
-                    if (webBrowser1.Url == new System.Uri("about:blank"))
-                    {
-                        webBrowser1.Url = new System.Uri("http://vsop.kr");
-                        this.Text = "Home Page";
-                    }
-                    else if (webBrowser1.Url.Host == new System.Uri("http://vsop.kr").Host)
-                    {
-                        //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
-                        webBrowser1.Url = new System.Uri("https://en.dict.naver.com/#/mini/main");
-                        this.Text = "영어사전";
-                    }
-                    else if (webBrowser1.Url.Host == new System.Uri("https://en.dict.naver.com/#/mini/main").Host)
-                    {
-                        webBrowser1.Url = new System.Uri("https://hanja.dict.naver.com/small");
-                        this.Text = "한자사전";
-                    }
-                    else if (webBrowser1.Url.Host == new System.Uri("https://hanja.dict.naver.com/small").Host)
-                    {
-                        webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
-                        this.Text = "스팸번호 조회";
-                    }
-                    else if (webBrowser1.Url.Host == new System.Uri("http://www.thecall.co.kr").Host)
-                    {
-                        //host : www.thecall.co.kr
-                        //webBrowser1.Url = new System.Uri("https://hanja.dict.naver.com/");
-                        webBrowser1.Url = new System.Uri("https://fast.com/ko/");
-                        this.Text = "속도테스트";
-                    }
-                    else
-                    {
-                        webBrowser1.Url = new System.Uri("about:blank");
-                        FillDocument();
-                        this.Text = "우편번호 조회";
-                    }
-                    break;
-            }
-        }
-
         private void frmMain_Shown(object sender, System.EventArgs e)
         {
             //webBrowser1.ScrollBarsEnabled = true;
 
             //http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain
-            //webBrowser1.Url = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
-            //webBrowser1.Url = new System.Uri("https://en.dict.naver.com/#/mini/main");
-            //webBrowser1.Url = new System.Uri("http://www.thecall.co.kr");
+            //webView2.Source = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
+            //webView2.Source = new System.Uri("https://en.dict.naver.com/#/mini/main");
+            //webView2.Source = new System.Uri("http://www.thecall.co.kr");
 
-            webBrowser1.Url = new System.Uri("http://vsop.kr/");
+            webView2.Source = new Uri("http://vsop.kr/");
         }
 
         private void FillDocument()
         {
-            webBrowser1.DocumentText = string.Empty;
+            //webBrowser1.DocumentText = string.Empty;
 
             StringBuilder sb = new StringBuilder();
             //postcode.map.daum.net/guide
@@ -90,7 +44,7 @@ namespace YunDictionary
             //sb.Append("<input type='text' name='userName'/><br/>");
             //sb.Append("<input type='text' id='postCode' placeholder='우편번호'>");
             //sb.Append("<input type='button' onclick='execDaumPostcode()' value='우편번호 찾기'><br>");
-            sb.Append("<div id='wrap' style='display:block;border:0px solid;width:397px;height:500px; margin:-5px; position:relative;'></div>");
+            sb.Append("<div id='wrap' style='display:block;border:0px solid;width:780px;height:550px; margin:-5px; position:relative;'></div>");
 
             sb.Append("<script>");
             sb.Append("var element_wrap=document.getElementById('wrap');");
@@ -113,7 +67,8 @@ namespace YunDictionary
             sb.Append("</body>");
             sb.Append("</html>");
 
-            webBrowser1.DocumentText = sb.ToString();
+            //webBrowser1.DocumentText = sb.ToString();
+            webView2.NavigateToString(sb.ToString());
         }
 
         //private void FillDocument(string str)
@@ -139,14 +94,60 @@ namespace YunDictionary
             //Microsoft.Win32.Registry.SetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Internet Explorer\MAIN\FeatureControl\FEATURE_BROWSER_EMULATION",
             //  Application.ProductName + ".exe", 10001);
 
-            var appName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
+            //var appName = System.Diagnostics.Process.GetCurrentProcess().ProcessName + ".exe";
 
-            using (var Key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
+            //using (var Key = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION", true))
+            //{
+            //    if (Key.GetValue(appName) != null && Convert.ToInt32(Key.GetValue(appName)).Equals(99999))
+            //        return;
+
+            //    Key.SetValue(appName, 99999, Microsoft.Win32.RegistryValueKind.DWord);
+            //}
+        }
+
+        private void webView2_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
             {
-                if (Key.GetValue(appName) != null && Convert.ToInt32(Key.GetValue(appName)).Equals(99999))
-                    return;
-
-                Key.SetValue(appName, 99999, Microsoft.Win32.RegistryValueKind.DWord);
+                case Keys.Escape:
+                    this.WindowState = FormWindowState.Minimized;
+                    break;
+                case Keys.F2:
+                    if (webView2.Source == new Uri("about:blank"))
+                    {
+                        webView2.Source = new Uri("http://vsop.kr");
+                        this.Text = "Home Page";
+                    }
+                    else if (webView2.Source.Host == new Uri("http://vsop.kr").Host)
+                    {
+                        //webView2.Source = new System.Uri("http://endic.naver.com/popManager.nhn?sLn=kr&m=miniPopMain");
+                        webView2.Source = new Uri("https://en.dict.naver.com/#/mini/main");
+                        this.Text = "영어사전";
+                    }
+                    else if (webView2.Source.Host == new Uri("https://en.dict.naver.com/#/mini/main").Host)
+                    {
+                        webView2.Source = new Uri("https://hanja.dict.naver.com/small");
+                        this.Text = "한자사전";
+                    }
+                    else if (webView2.Source.Host == new Uri("https://hanja.dict.naver.com/small").Host)
+                    {
+                        webView2.Source = new System.Uri("http://www.thecall.co.kr");
+                        this.Text = "스팸번호 조회";
+                    }
+                    else if (webView2.Source.Host == new System.Uri("http://www.thecall.co.kr").Host)
+                    {
+                        //host : www.thecall.co.kr
+                        //webView2.Source = new System.Uri("https://hanja.dict.naver.com/");
+                        webView2.Source = new System.Uri("https://fast.com/ko/");
+                        this.Text = "속도테스트";
+                    }
+                    else
+                    {
+                        webView2.Source = new Uri("about:blank");                        
+                        FillDocument();
+                        this.Text = "우편번호 조회";
+                    }
+                    break;
             }
         }
     }

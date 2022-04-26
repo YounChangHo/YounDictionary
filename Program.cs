@@ -15,7 +15,7 @@ namespace YunDictionary
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //ShortcutToDesktop(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Yun사전", @"http://vsop.kr/App/YunDictionary/YunDictionary.application");
+            //ShortcutToDesktop(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "Youn사전", @"http://vsop.kr/App/YunDictionary/YunDictionary.application");
             
             Application.Run(new frmMain());
         }
