@@ -21,6 +21,7 @@ namespace YunDictionary
             //webView2.Source = new System.Uri("http://www.thecall.co.kr");
 
             webView2.Source = new Uri("http://vsop.kr/");
+            //webView2.Source = new Uri("http://naver.com/");
         }
 
         private void FillDocument()
@@ -44,7 +45,7 @@ namespace YunDictionary
             //sb.Append("<input type='text' name='userName'/><br/>");
             //sb.Append("<input type='text' id='postCode' placeholder='우편번호'>");
             //sb.Append("<input type='button' onclick='execDaumPostcode()' value='우편번호 찾기'><br>");
-            sb.Append("<div id='wrap' style='display:block;border:0px solid;width:780px;height:550px; margin:-5px; position:relative;'></div>");
+            sb.Append("<div id='wrap' style='display:block;border:0px solid;width:410px;height:640px; margin:-5px; position:relative;'></div>");
 
             sb.Append("<script>");
             sb.Append("var element_wrap=document.getElementById('wrap');");
@@ -103,6 +104,20 @@ namespace YunDictionary
 
             //    Key.SetValue(appName, 99999, Microsoft.Win32.RegistryValueKind.DWord);
             //}
+
+            //System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer
+            //{
+            //    Interval = 75 * 1000
+            //};
+            //timer.Tick += Timer_Tick;
+            //timer.Start();
+
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            //webView2.Source = new Uri("about:blank");
+            //webView2.Source = new Uri("https://cafe.naver.com/enjoypusan/160672");
         }
 
         private void webView2_KeyUp(object sender, KeyEventArgs e)
@@ -143,7 +158,7 @@ namespace YunDictionary
                     }
                     else
                     {
-                        webView2.Source = new Uri("about:blank");                        
+                        webView2.Source = new Uri("about:blank");
                         FillDocument();
                         this.Text = "우편번호 조회";
                     }

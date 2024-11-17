@@ -41,7 +41,7 @@
             this.webView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webView2.Location = new System.Drawing.Point(0, 0);
             this.webView2.Name = "webView2";
-            this.webView2.Size = new System.Drawing.Size(784, 561);
+            this.webView2.Size = new System.Drawing.Size(444, 601);
             this.webView2.TabIndex = 0;
             this.webView2.ZoomFactor = 1D;
             this.webView2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.webView2_KeyUp);
@@ -50,7 +50,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(444, 601);
             this.Controls.Add(this.webView2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
